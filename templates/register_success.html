@@ -1,0 +1,13 @@
+<!-- templates/challenge_backout.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+
+<meta http-equiv="refresh" content="5;url={% url 'home' %}"> 
+
+<h3 class="display-6">Redirecting to Home Page in 5 seconds...</h3>
+<div class="jumbotron">
+	<h2 class="display-6 text-center">Registration Succcessful!</h2>
+	<a class="btn btn-link btn-block center" href="{% url 'home' %}" role="button" name="home">Back to Homepage</a>
+</div>
+{% endblock content %}

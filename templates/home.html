@@ -1,0 +1,12 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+	<h1 class="display-4 text-center">Join PizzaPy-Cebu!</h1>
+	<p class="lead text-center">Click the button to join!</p>
+	<p class="lead text-center">
+		<a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register here!</a>
+	</p>
+</div>
+{% endblock content %}

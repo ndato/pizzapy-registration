@@ -1,0 +1,44 @@
+<!-- templates/viewregistrants_list.html -->
+{% extends 'viewregistrants_header.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+	<h3 class="display-6">Registrants:</h3>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Timestamp</th>
+				<th scope="col">Last Name</th>
+				<th scope="col">First Name</th>
+				<th scope="col">Email</th>
+				<th scope="col">Contact Number</th>
+				<th scope="col">Notify?</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for entry in object_list %}
+				<tr>
+					<th scope="row">{{ entry.timestamp|date }} {{ entry.timestamp|time:"h:i:s A" }}</th>
+					<td>{{ entry.last_name }}</td>
+					<td>{{ entry.first_name }}</td>
+					<td>{{ entry.email }}</td>
+					<td>{{ entry.contact }}</td>
+					<td>
+						{{ entry.notify }}
+					</td>
+				</tr>
+			{% empty %}
+				<tr>
+					<th scope="row">No registrants</th>
+				</tr>
+			{% endfor %}				
+		</tbody>
+	</table>
+{% else %}
+	<h3 class="display-6">Need to log-in first</h3>
+{% endif %}
+
+{% endblock content %}
